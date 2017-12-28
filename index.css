@@ -1,0 +1,327 @@
+/* author: Zetian Chen
+ * description: add css flap-over effects to the html file
+ */
+
+body {
+    background-color: #41566a;
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+  
+.blessing {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10%;
+    -webkit-box-pack: center;
+}
+
+.bless-box {
+    height: 300px;
+    margin: 20px;
+    perspective: 800px;
+    width: 200px;
+    position: relative;
+    -webkit-perspective: 800px;
+}
+
+.bless {
+    height: 100%;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    transform-style: preserve-3d;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+    width: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+}
+
+.bless-box:hover .bless {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.bless-side {
+    align-items: stretch;
+    backface-visibility: hidden;
+    height: 100%;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    width: 100%;
+    -ms-flex-align: stretch;
+    -webkit-box-align: stretch;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.bless-side.is-back {
+    transform: rotateY(180deg);
+    z-index: 2;
+    -webkit-transform: rotateY(180deg);
+}
+
+.bless-text {
+    align-items: center;
+    color: #333;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    font: 28px 'Sacramento', cursive;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: center;
+    width: 100%;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -ms-flex-wrap: wrap;
+}
+
+.bless-1-side:before {
+    background: #41566a;
+    border-radius: 50%;
+    content: " ";
+    height: 15px;
+    left: 50%;
+    width: 15px;
+    position: absolute;
+    top: 30px;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 1;
+    -webkit-transform: translate3d(-50%, 0, 0);
+}
+
+.bless-1-top {
+    margin-top: -35px;
+    position: absolute;
+    top: 0;
+    transform: scale(0.775, 0.5) translate3d(0, 0, 0);
+    width: 100%;
+    -webkit-transform: scale(0.775, 0.5) translate3d(0, 0, 0);
+}
+
+.bless-1-top:before {
+    background: #ede5d8;
+    content: " ";
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 30px;
+    display: block;
+    padding-bottom: 200px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.bless-1-side.is-back .bless-1-top:before {
+    background: #4686c8;
+}
+
+.bless-1-text {
+    background: #ede5d8;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 65px;
+    padding-top: 30px;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    z-index: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.bless-1-side.is-back .bless-1-text {
+    background: #4686c8;
+    color: #fff;
+}
+
+.bless-2-side:before,
+.bless-2-side:after {
+    background: #b6dfde;
+    content: " ";
+    height: 50px;
+    left: 50px;
+    position: absolute;
+    right: 50px;
+    top: 0;
+    transform: skew(-45deg) translate3d(0, 0, 0);
+    transform-origin: 0 0;
+    -webkit-transform: skew(-45deg) translate3d(0, 0, 0);
+    -webkit-transform-origin: 0 0;
+}
+
+.bless-2-side.is-back:before,
+.bless-2-side.is-back:after {
+    background: #47ada0;
+}
+
+.bless-2-side:after {
+    transform: skew(45deg);
+    -webkit-transform: skew(45deg);
+}
+
+.bless-2-text:before {
+    content: " ";
+    background: #41566a;
+    width: 27px;
+    height: 27px;
+    border: 6px solid #47ada0;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    z-index: 1;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
+
+.bless-2-side.is-back .bless-2-text:before {
+    border-color: #b6dfde;
+}
+
+.bless-2-text {
+    background: #b6dfde;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.bless-2-side.is-back .bless-2-text {
+    background: #47ada0;
+    color: #fff;
+}
+
+.bless-3-side {
+    margin-top: 0;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: flex;
+}
+
+.bless-3-side:before {
+    content: " ";
+    background: #c2cdfd;
+    width: 150px;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
+
+.bless-3-side.is-back:before {
+    background: #e44f47;
+}
+
+.bless-3-side:after {
+    content: " ";
+    background: #41566a;
+    width: 45px;
+    height: 45px;
+    border: 15px solid #c2cdfd;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.bless-3-side.is-back:after {
+    border-color: #e44f47;
+}
+
+.bless-3-text {
+    background: #c2cdfd;
+    width: 100%;
+    border-radius: 20px;
+    padding-top: 60px;
+    color: #333;
+    z-index: 1;
+}
+
+.bless-3-side.is-back .bless-3-text {
+    background: #e44f47;
+    color: #fff;
+}
+
+/* Extras */
+.rule-shape {
+    width: 100%;
+    color: #fff;
+    font-size: 34px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.rule-shape:before,
+.rule-shape:after {
+    content: " ";
+    background: #fff;
+    height: 1px;
+    margin-bottom: 8px;
+    display: block;
+    -webkit-box-flex: 2;
+    flex-grow: 2;
+}
+
+.rule-shape:before {
+    margin-right: 6.25px;
+}
+
+.rule-shape:after {
+    margin-left: 6.25px;
+}
+
+.rule-red {
+    color: #e44f47;
+}
+
+.rule-red:before,
+.rule-red:after {
+    background: #e44f47;
+}
+
+.rule-diagonal {
+    background: -webkit-repeating-linear-gradient(
+        45deg,
+        #e44f47,
+        #e44f47 7px,
+        transparent 7px,
+        transparent 14px,
+        #fff 14px,
+        #fff 21px,
+        transparent 21px,
+        transparent 28px
+    );
+    background: repeating-linear-gradient(
+        45deg,
+        #e44f47,
+        #e44f47 7px,
+        transparent 7px,
+        transparent 14px,
+        #fff 14px,
+        #fff 21px,
+        transparent 21px,
+        transparent 28px
+    );
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
